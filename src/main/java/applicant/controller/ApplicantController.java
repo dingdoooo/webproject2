@@ -299,7 +299,7 @@ public class ApplicantController extends HttpServlet {
 		public void minsong()
 		{
 
-			
+			String abc;
 		}
 
 	
