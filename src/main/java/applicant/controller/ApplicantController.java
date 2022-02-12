@@ -289,7 +289,10 @@ public class ApplicantController extends HttpServlet {
 			}
 			request.getRequestDispatcher(url).forward(request, response);
 		}		
-		
+		public void minsong()
+		{
+			
+		}
 
 	
 }
