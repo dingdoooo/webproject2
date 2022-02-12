@@ -293,12 +293,14 @@ public class ApplicantController extends HttpServlet {
 		
 		
 		public static void jinjoo() {
-		
+			
 		}
 
 		public void minsong()
 		{
-
+			String jinjoo;
+			int a;
+			
 			String abc;
 		}
 		
