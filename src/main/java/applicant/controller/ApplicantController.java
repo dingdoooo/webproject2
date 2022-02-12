@@ -289,9 +289,16 @@ public class ApplicantController extends HttpServlet {
 			}
 			request.getRequestDispatcher(url).forward(request, response);
 		}		
+
 		
 		
 		public static void jinjoo() {
+		
+		}
+
+		public void minsong()
+		{
+
 			
 		}
 
