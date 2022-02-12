@@ -300,6 +300,11 @@ public class ApplicantController extends HttpServlet {
 		{
 
 			String abc;
+			if (abc =="a");
+			{
+				String dsa;
+			}
+				
 		}
 		
 
