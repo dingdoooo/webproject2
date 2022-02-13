@@ -17,6 +17,7 @@ public class ApplicantDAO {
 	public static boolean addApplicant(ApplicantDTO applicant) throws SQLException{
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		
 		try{
 			con = DBUtil.getConnection();
@@ -29,9 +30,21 @@ public class ApplicantDAO {
 			pstmt.setString(4, applicant.getPhone());
 			System.out.println("실행됐지롱33");
 			
+			pstmt2 = con.prepareStatement("insert into certificate values(?, ?, ?, ?, ?, ?)");
+			
+			pstmt2.setString(1, applicant.getId());
+			pstmt2.setInt(2, 0);
+			pstmt2.setInt(3, 0);
+			pstmt2.setInt(4, 0);
+			pstmt2.setInt(5, 0);
+			pstmt2.setInt(6, 0);
+
+			
+			
 			int result = pstmt.executeUpdate();
+			int result2 = pstmt2.executeUpdate();
 		
-			if(result == 1){
+			if(result == 1 && result2 ==1){
 				System.out.println("실행됐지롱44");
 				return true;
 			}
@@ -162,16 +175,19 @@ public class ApplicantDAO {
 		try{
 			con = DBUtil.getConnection();
 			System.out.println("실행됐지롱22__22");
+		
+			pstmt = con.prepareStatement("update certificate set sqld =?, adsp =? , dasp =? , bda = ?, ipe =? ,sum =? where applicant_id =?");
 			
-			pstmt = con.prepareStatement("insert into certificate values(?, ?, ?, ?, ?, ?)");
+			pstmt.setInt(1, certificate.getSqld());
+			pstmt.setInt(2, certificate.getAdsp());
+			pstmt.setInt(3, certificate.getDasp());
+			pstmt.setInt(4, certificate.getBda());
+			pstmt.setInt(5, certificate.getIpe());
+			pstmt.setInt(6, certificate.getSqld()+certificate.getAdsp()+certificate.getDasp()+certificate.getBda()+certificate.getIpe());
 			
-			pstmt.setString(1, certificate.getApplicant_id());
-			pstmt.setInt(2, certificate.getSqld());
-			pstmt.setInt(3, certificate.getAdsp());
-			pstmt.setInt(4, certificate.getDasp());
-			pstmt.setInt(5, certificate.getBda());
-			pstmt.setInt(6, certificate.getIpe());
-
+			pstmt.setString(7, certificate.getApplicant_id());
+			
+			
 			int result = pstmt.executeUpdate();
 		
 			if(result == 1){

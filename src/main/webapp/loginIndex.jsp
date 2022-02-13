@@ -38,7 +38,7 @@
  	&nbsp;&nbsp;&nbsp;<a href="controller?command=applicant" method="post">3. 마이 페이지 </a><p>	
 	
 
-	<form action="probono?command=activist" method="post" >
+	<form action="controller?command=applicant" method="post" >
 	&nbsp;&nbsp;&nbsp;	
 	4. 기부자 ID : <input type="text" name="activistId"><input type="submit" value="검색">
 	</form>
