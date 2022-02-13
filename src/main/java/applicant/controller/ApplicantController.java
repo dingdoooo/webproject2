@@ -240,45 +240,27 @@ public class ApplicantController extends HttpServlet {
 			ApplicantDTO applicant = (ApplicantDTO) session.getAttribute("applicant");
 			
 			String applicant_id = applicant.getId();
-			String password = applicant.getPassword();
 			System.out.println(applicant_id); // 여기까지 ok
-//			
-//			int sqld = Integer.parseInt(request.getParameter("sqld1"));
-//			int adsp = Integer.parseInt(request.getParameter("adsp"));
-//			int dasp = Integer.parseInt(request.getParameter("dasp"));
-//			int bda = Integer.parseInt(request.getParameter("bad"));
-//			int ipe = Integer.parseInt(request.getParameter("ipe"));
 			
-			String sqld = request.getParameter("sqld");
-			String adsp = request.getParameter("adsp");
-			String dasp = request.getParameter("dasp");
-			String bda = request.getParameter("bad");
-			String ipe = request.getParameter("ipe");
-			
-			System.out.println(sqld);
-			
-			int sqld2 = Integer.parseInt(sqld);
-			int adsp2 = Integer.parseInt(adsp);
-			int dasp2 = Integer.parseInt(dasp);
-			int bda2 = Integer.parseInt(bda);
-			int ipe2 = Integer.parseInt(ipe);
-			
-			System.out.println(ipe);
+			int sqld = Integer.parseInt(request.getParameter("sqld"));
+			int adsp = Integer.parseInt(request.getParameter("adsp"));
+			int dasp = Integer.parseInt(request.getParameter("dasp"));
+			int bad = Integer.parseInt(request.getParameter("bda"));
+			int ipe = Integer.parseInt(request.getParameter("ipe"));
 
-			CertificateDTO certificate = new CertificateDTO(applicant_id, sqld2, adsp2, dasp2, bda2, ipe2);
+
+			CertificateDTO certificate = new CertificateDTO(applicant_id, sqld, adsp, dasp, bad, ipe);
 			
 			try{
 				
-				request.setAttribute("certificate", ApplicantService.addCertificate(certificate));
 				boolean result = ApplicantService.addCertificate(certificate);
 				
 				if(result){
 					//mary수정, 로그인을유지하기 위한 id pw값 넘기기 
-					request.setAttribute("id", applicant_id);
-					request.setAttribute("pw", password);
-//					request.setAttribute("certificate", certificate);
+					request.setAttribute("certificate", certificate);
 					request.setAttribute("successMsg", "등록 완료");
-					url = ".jsp";	// *** 제대로 applicant insert를 했을 때 url 수정해줌
+					url = "ok.jsp";	// *** 제대로 applicant insert를 했을 때 url 수정해줌
+					
 					
 					
 				}else{
@@ -292,22 +274,7 @@ public class ApplicantController extends HttpServlet {
 
 		
 		
-		public static void jinjoo() {
-			
-		}
 
-		public void minsong()
-		{
-			String jinjoo;
-			int a;
-			
-			String abc;
-			if (abc =="a");
-			{
-				String dsa;
-			}
-				
-		}
 		
 
 	

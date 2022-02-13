@@ -79,7 +79,5 @@ public class ApplicantService {
 		return result;
 	}
 
-	public void jinjoo2() {
-		
-	}
+
 }

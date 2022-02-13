@@ -16,7 +16,7 @@
 		<h3>${requestScope.errorMsg}</h3>
 			
 		<br><br><br>
-		<a href="${pageContext.request.contextPath}/login.html">메인 화면으로 이동하기</a>
+		<a href="${pageContext.request.contextPath}/loginIndex.jsp">메인 화면으로 이동하기</a>
 	</center>
 	
 </body>
